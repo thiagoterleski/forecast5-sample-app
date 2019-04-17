@@ -144,6 +144,7 @@ h1 {
   }
   .daily-hours-table td.hour {
     font-size: 11px;
+    text-align: center;
   }
   .forecast-card .group-hours {
     padding: 0;

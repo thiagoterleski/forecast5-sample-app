@@ -44,7 +44,7 @@ const app = function() {
     const groupedByDays = data.list
       .map(item => {
         const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
-          new Date(item.dt_txt).getDay()
+          new Date(item.dt_txt.replace(/-/g, '/')).getDay()
         ];
 
         // Stores the main weather type in a array
