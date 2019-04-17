@@ -59,7 +59,7 @@ const app = function() {
           { clouds: item.clouds },
           { date: item.dt_txt },
           { main: item.main },
-          { day: new Date(item.dt_txt).getDay() },
+          { day: new Date(item.dt_txt.replace(/-/g, '/')).getDay() },
         );
       })
       .reduce(function(h, obj) {
@@ -83,9 +83,8 @@ const app = function() {
   const mountForecastCards = function(data) {
 
     return data.map(function(dayObj) {
-      console.log(dayObj);
       const groupHours = dayObj.items.map(item => {
-        const d = new Date(item.date);
+        const d = new Date(item.date.replace(/-/g, '/'));
         const hour = d.toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
         return `
           <tr>
